@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	
+	<title>Departamentos</title>
+</head>
+
+<body>
+	<nav>
+		<ul>
+			<li><a href="/departamentos/cadastrar">Cadastrar</a></li>
+			<li><a href="/departamentos/listar">Listar</a></li>
+		</ul>
+	</nav>
+	
+	<section>
+		<form th:action="${departamento.id == null} ? @{/departamentos/salvar} : @{/departamentos/editar}" th:object="${departamento}" method="POST">
+			<input type="text" th:field="*{nome}">
+			<input type="hidden" th:field="*{id}">
+			
+			<button type="submit">Salvar</button>
+		</form>
+	</section>
+</body>
+</html>

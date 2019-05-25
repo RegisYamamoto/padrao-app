@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	
+	<title>Departamentos</title>
+</head>
+
+<body>
+	<nav>
+		<ul>
+			<li><a href="/departamentos/cadastrar">Cadastrar</a></li>
+			<li><a href="/departamentos/listar">Listar</a></li>
+		</ul>
+	</nav>
+	
+	<section>
+		<table>
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>Ação</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<tr th:each="d : ${departamentos}">
+					<td th:text="${d.nome}"></td>
+					
+					<td>
+						<a th:href="@{/departamentos/editar/{id} (id=${d.id})}">editar</a>
+						<a th:href="@{/departamentos/excluir/{id} (id=${d.id})}">excluir</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</section>
+</body>
+</html>
